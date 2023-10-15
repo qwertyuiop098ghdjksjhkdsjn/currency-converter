@@ -19,6 +19,7 @@
     background: rgba(218, 192, 242, 0.532);
     border: 2px solid rgb(213, 179, 245);
     cursor: pointer;
+    color: black;
 }
 
 .input {
@@ -42,5 +43,7 @@
     height: 40px;
     border-radius: 4px;
     border-color: rgb(203, 163, 241);
+    color: black;
+    font-size: 18px;
 }
 
