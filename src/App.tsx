@@ -25,16 +25,16 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   getRate().then(response => {
-  //     console.log(response);
-  //     let result: IRate = {};
-  //     result.USD = 1/response.rates.RUB * response.rates.USD;
-  //     result.EUR = 1/response.rates.RUB;
+  useEffect(() => {
+    getRate().then(response => {
+      console.log(response);
+      let result: IRate = {};
+      result.USD = 1/response.rates.RUB * response.rates.USD;
+      result.EUR = 1/response.rates.RUB;
 
-  //     setRate(result);
-  //   })
-  // }, [])
+      setRate(result);
+    })
+  }, [])
 
 
   return (
