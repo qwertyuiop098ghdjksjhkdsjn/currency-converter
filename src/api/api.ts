@@ -32,7 +32,7 @@ const obj: Person = {
  
 
 function getRate () {
-   return fetch(apiKey).then(response => response.json())
+   return fetch(apiKey, {referrerPolicy: "unsafe-url"}).then(response => response.json())
 };
 
 export default getRate
