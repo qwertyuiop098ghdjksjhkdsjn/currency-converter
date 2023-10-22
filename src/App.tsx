@@ -13,28 +13,28 @@ interface IRate {
 
 function App() {
 
-  const [rate, setRate] = useState<IRate>({});
+  const [rate, setRate] = useState<IRate>({USD: 95, EUR: 101});
 
   const [result, setResult] = useState<string | number>("");
 
   function onClickConvert (sum: string, currency: string) {
     if (currency === "usd") {
-      setResult(+sum * (rate?.USD || 1))
+      setResult(+sum / (rate?.USD || 1))
     } else {
-      setResult(+sum * (rate?.EUR || 1))
+      setResult(+sum / (rate?.EUR || 1))
     }
   }
 
-  useEffect(() => {
-    getRate().then(response => {
-      console.log(response);
-      let result: IRate = {};
-      result.USD = 1/response.rates.RUB * response.rates.USD;
-      result.EUR = 1/response.rates.RUB;
+  // useEffect(() => {
+  //   getRate().then(response => {
+  //     console.log(response);
+  //     let result: IRate = {};
+  //     result.USD = 1/response.rates.RUB * response.rates.USD;
+  //     result.EUR = 1/response.rates.RUB;
 
-      setRate(result);
-    })
-  }, [])
+  //     setRate(result);
+  //   })
+  // }, [])
 
 
   return (
@@ -45,7 +45,7 @@ function App() {
       </header>
       <Input onClick={onClickConvert}/>
       <p>exchange rate:</p>
-      <div className='output'>{(+result).toFixed(3)}</div>
+      <div className='output'>{(+result).toFixed(2)}</div>
     </div>
   );
 }
