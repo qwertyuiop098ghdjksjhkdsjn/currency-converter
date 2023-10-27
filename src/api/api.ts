@@ -1,6 +1,6 @@
 
 
-const apiKey = "http://data.fixer.io/api/latest?access_key=b4e4b32ba21bff1e56f54529ca1fda84"; 
+const apiKey = "https://free.currconv.com/api/v7/convert?q=RUB_USD,RUB_EUR&compact=ultra&apiKey=9d20c42f2ea583f224a4"; 
 
 
 type Age = number | string;

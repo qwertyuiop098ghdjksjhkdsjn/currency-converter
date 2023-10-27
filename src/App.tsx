@@ -13,28 +13,28 @@ interface IRate {
 
 function App() {
 
-  const [rate, setRate] = useState<IRate>({USD: 95, EUR: 101});
+  const [rate, setRate] = useState<IRate>({});
 
   const [result, setResult] = useState<string | number>("");
 
   function onClickConvert (sum: string, currency: string) {
     if (currency === "usd") {
-      setResult(+sum / (rate?.USD || 1))
+      setResult(+sum * (rate?.USD || 1))
     } else {
-      setResult(+sum / (rate?.EUR || 1))
+      setResult(+sum * (rate?.EUR || 1))
     }
   }
 
-  // useEffect(() => {
-  //   getRate().then(response => {
-  //     console.log(response);
-  //     let result: IRate = {};
-  //     result.USD = 1/response.rates.RUB * response.rates.USD;
-  //     result.EUR = 1/response.rates.RUB;
+  useEffect(() => {
+    getRate().then(response => {
+      console.log(response);
+      let result: IRate = {};
+      result.USD = response.RUB_USD;
+      result.EUR = response.RUB_EUR;
 
-  //     setRate(result);
-  //   })
-  // }, [])
+      setRate(result);
+    })
+  }, [])
 
 
   return (
